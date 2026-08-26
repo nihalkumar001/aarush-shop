@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aarush Shop - Sweets</title>
+<style>
+:root{
+  --maroon:#8e0f24;
+  --dark:#17100f;
+  --cream:#fff8ef;
+  --gold:#b37a2a;
+  --line:#eadfd6;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:Arial,Helvetica,sans-serif;background:#fff;color:#181818}
+a{text-decoration:none;color:inherit}
+button{font:inherit}
+
+/* HEADER */
+header{
+  height:78px;background:#fff;display:flex;align-items:center;
+  justify-content:space-between;padding:0 7%;border-bottom:1px solid #eee;
+  position:sticky;top:0;z-index:1000;box-shadow:0 2px 10px #0000000d
+}
+.brand{display:flex;align-items:center;gap:10px;color:var(--maroon)}
+.brand-mark{
+  width:50px;height:50px;border:2px solid var(--maroon);border-radius:50%;
+  display:grid;place-items:center;font:700 26px Georgia,serif
+}
+.brand-text{font:700 25px Georgia,serif;line-height:.9}
+.brand-text small{display:block;font:700 10px Arial;letter-spacing:5px;margin-top:7px;text-align:center}
+nav{display:flex;gap:28px;font-weight:600}
+nav a:hover{color:var(--maroon)}
+.header-actions{display:flex;gap:12px;align-items:center}
+.phone{
+  width:50px;height:50px;border:1px solid var(--maroon);border-radius:50%;
+  color:var(--maroon);display:grid;place-items:center;font-size:22px
+}
+.menu-btn{border:0;background:none;color:var(--maroon);font-size:31px;cursor:pointer;display:none}
+
+/* HERO */
+.hero{
+  min-height:410px;position:relative;overflow:hidden;background:#f7eee5;
+}
+.hero-slider{height:410px;display:flex;width:400%;animation:heroSlide 18s infinite}
+.hero-slide{width:25%;height:100%;flex:none;background-size:cover;background-position:center}
+.hero-slide:nth-child(1){background-image:url("pic1.jpg.jpeg")}
+.hero-slide:nth-child(2){background-image:url("pic2.jpg.jpeg")}
+.hero-slide:nth-child(3){background-image:ur("pic3.jpg.jpeg")}
+.hero-slide:nth-child(4){background-image:url("pic4.jpg.jpeg")}
+.hero-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(90deg,#fff9f0 0%,#fff9f0f2 27%,#fff9f08c 51%,#fff0 76%)
+}
+.hero-copy{
+  position:absolute;z-index:3;left:7%;top:50%;transform:translateY(-50%);
+  width:45%;max-width:520px
+}
+.eyebrow{font:italic 17px Georgia,serif;color:#ae792b;margin-bottom:12px}
+.hero h1{font:700 40px Georgia,serif;line-height:1.08;margin-bottom:13px}
+.hero h1 span{color:var(--maroon);font-style:italic}
+.hero p{font-size:17px;line-height:1.5;margin-bottom:22px}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  min-height:45px;padding:0 22px;border-radius:8px;
+  background:var(--maroon);color:#fff;font-weight:700;border:1px solid var(--maroon);
+  margin-right:10px;cursor:pointer
+}
+.btn.light{background:#fff;color:var(--maroon)}
+@keyframes heroSlide{
+  0%,20%{transform:translateX(0)}
+  25%,45%{transform:translateX(-25%)}
+  50%,70%{transform:translateX(-50%)}
+  75%,95%{transform:translateX(-75%)}
+  100%{transform:translateX(0)}
+}
+
+/* FEATURES */
+.features{
+  display:grid;grid-template-columns:repeat(3,1fr);padding:20px 7%;
+  border-bottom:1px solid #eee;background:#fff
+}
+.feature{text-align:center;font-size:13px;line-height:1.4}
+.feature .icon{display:block;color:var(--maroon);font-size:24px;margin-bottom:4px}
+
+/* PRODUCTS */
+.section{padding:28px 7%}
+.section-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}
+.section h2{font:700 28px Georgia,serif}
+.view{color:var(--maroon);font-weight:700}
+.products{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:16px
+}
+.product{
+  background:#fff;border-radius:12px;overflow:hidden;
+  box-shadow:0 4px 15px #00000016;border:1px solid #eee
+}
+.product img{width:100%;height:150px;object-fit:cover;display:block}
+.product-info{padding:12px 13px}
+.product h3{font-size:15px;margin-bottom:6px}
+.price{font-weight:700;color:var(--maroon)}
+
+/* OCCASION TEXT */
+.occasion{
+  margin:10px 7% 28px;padding:28px 25px;background:var(--cream);
+  border-radius:10px;border:1px solid #f0dfd2;position:relative;overflow:hidden
+}
+.occasion h2{font:700 28px Georgia,serif;margin:4px 0 8px}
+.occasion h2 span{color:var(--maroon)}
+.occasion p{font-size:15px;line-height:1.5}
+.occasion .btn{margin-top:14px}
+
+/* LOWER AUTO SLIDER */
+.shop-slider{
+  margin-top:0;height:240px;overflow:hidden;border-radius:10px;position:relative;
+  background:#f4e8dc
+}
+.shop-track{display:flex;width:400%;height:100%;animation:shopSlide 14s infinite}
+.shop-photo{width:25%;height:100%;flex:none;background-size:cover;background-position:center}
+.shop-photo:nth-child(1){background-image:url("pic1.jpg.jpeg")}
+.shop-photo:nth-child(2){background-image:url("pic2.jpg.jpeg")}
+.shop-photo:nth-child(3){background-image:url("pic3.jpg.jpeg")}
+.shop-photo:nth-child(4){background-image:url("pic4.jpg.jpeg")}
+.shop-slider:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#fffaf0e8,#fff0 60%)}
+.shop-caption{position:absolute;z-index:2;left:28px;top:50%;transform:translateY(-50%);max-width:350px}
+.shop-caption small{color:#ae792b;font:italic 17px Georgia,serif}
+.shop-caption h2{font:700 30px Georgia,serif;margin:7px 0}
+.shop-caption p{line-height:1.5}
+@keyframes shopSlide{
+  0%,20%{transform:translateX(0)}
+  25%,45%{transform:translateX(-25%)}
+  50%,70%{transform:translateX(-50%)}
+  75%,95%{transform:translateX(-75%)}
+  100%{transform:translateX(0)}
+}
+
+/* CONTACT */
+.contact{
+  padding:27px 7%;border-top:1px solid #eee;background:#fff
+}
+.contact-box{
+  display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:center
+}
+.contact h2{font:700 23px Georgia,serif;color:var(--maroon);margin-bottom:10px}
+.contact p{font-size:15px;line-height:1.7}
+.map{
+  height:150px;border-radius:10px;background:
+  linear-gradient(135deg,#e8e8e8,#f7f7f7);
+  display:grid;place-items:center;text-align:center;border:1px solid #ddd;color:#555
+}
+.social-title{text-align:center;font:700 22px Georgia,serif;color:var(--maroon);margin:28px 0 13px}
+.social{text-align:center;display:flex;justify-content:center;gap:12px}
+.social a{
+  border:1px solid #ddd;border-radius:9px;padding:10px 17px;font-weight:600
+}
+.social a:hover{border-color:var(--maroon);color:var(--maroon)}
+footer{text-align:center;padding:16px;background:#faf7f3;color:#555;font-size:13px}
+
+
+/* ORDER FORM MODAL */
+.order-modal{
+  position:fixed;inset:0;background:#0009;z-index:2000;display:none;
+  align-items:center;justify-content:center;padding:18px;overflow:auto
+}
+.order-modal.show{display:flex}
+.order-box{
+  width:min(520px,100%);max-height:92vh;overflow:auto;background:#fff;
+  border-radius:16px;box-shadow:0 20px 60px #0005;padding:26px;position:relative
+}
+.order-box h2{font:700 28px Georgia,serif;color:var(--maroon);margin-bottom:5px}
+.order-box .sub{color:#666;font-size:14px;margin-bottom:20px}
+.close-order{
+  position:absolute;right:15px;top:12px;border:0;background:#f4eeee;
+  width:36px;height:36px;border-radius:50%;font-size:24px;cursor:pointer
+}
+.order-form label{display:block;font-size:13px;font-weight:700;margin:12px 0 6px}
+.order-form input,.order-form textarea,.order-form select{
+  width:100%;padding:12px;border:1px solid #ddd;border-radius:8px;
+  font:inherit;outline:none;background:#fff
+}
+.order-form input:focus,.order-form textarea:focus,.order-form select:focus{border-color:var(--maroon)}
+.order-form textarea{min-height:82px;resize:vertical}
+.item-row{display:grid;grid-template-columns:1fr 95px;gap:10px}
+.order-submit{
+  width:100%;margin-top:20px;border:0;border-radius:9px;padding:14px;
+  background:#16a34a;color:#fff;font-weight:700;font-size:16px;cursor:pointer
+}
+.order-note{font-size:12px;color:#777;margin-top:10px;text-align:center}
+
+/* MOBILE */
+@media(max-width:800px){
+  header{height:70px;padding:0 5%}
+  .brand-mark{width:43px;height:43px;font-size:23px}
+  .brand-text{font-size:21px}.brand-text small{font-size:8px;letter-spacing:4px}
+  nav{
+    display:none;position:absolute;top:70px;left:0;right:0;background:#fff;
+    flex-direction:column;gap:0;padding:8px 5%;box-shadow:0 8px 18px #0002
+  }
+  nav.open{display:flex}
+  nav a{padding:15px 8px;border-bottom:1px solid #eee}
+  .menu-btn{display:block}
+  .hero,.hero-slider{height:430px}
+  .hero-copy{left:6%;width:56%;max-width:none}
+  .hero h1{font-size:28px}
+  .hero p{font-size:14px}
+  .eyebrow{font-size:14px}
+  .btn{padding:0 15px;font-size:13px;margin-right:4px}
+  .features{padding:15px 4%;gap:5px}
+  .feature{font-size:10px}.feature .icon{font-size:20px}
+  .section{padding:25px 5%}
+  .section h2{font-size:23px}
+  .products{grid-template-columns:repeat(2,1fr);gap:10px}
+  .product img{height:125px}
+  .product-info{padding:9px}.product h3{font-size:13px}
+  .occasion{margin:8px 5% 20px;padding:23px 17px}
+  .occasion h2{font-size:24px}
+  .shop-slider{height:210px}
+  .shop-caption{left:18px;max-width:220px}
+  .shop-caption h2{font-size:24px}
+  .contact{padding:24px 5%}
+  .contact-box{grid-template-columns:1fr}
+  .map{height:130px}
+}
+</style>
+</head>
+
+<body id="home">
+
+<header>
+  <a class="brand" href="#home">
+    <span class="brand-mark">A</span>
+    <span class="brand-text">Aarush Shop<small>SWEETS</small></span>
+  </a>
+
+  <nav id="nav">
+    <a href="#home" onclick="closeMenu()">Home</a>
+    <a href="#sweets" onclick="closeMenu()">Our Sweets</a>
+    <a href="#order" onclick="closeMenu()">Orders</a>
+    <a href="#contact" onclick="closeMenu()">Contact Us</a>
+  </nav>
+
+  <div class="header-actions">
+    <a class="phone" href="tel:8850304984" aria-label="Call">☎</a>
+    <button class="menu-btn" onclick="toggleMenu()" aria-label="Menu">☰</button>
+  </div>
+</header>
+
+<main>
+
+<section class="hero" id="home">
+  <div class="hero-slider">
+    <div class="hero-slide"></div>
+    <div class="hero-slide"></div>
+    <div class="hero-slide"></div>
+    <div class="hero-slide"></div>
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-copy">
+    <div class="eyebrow">Fresh Taste, Happy Moments</div>
+    <h1>We Take Orders for <span>All Occasions & Festivals</span></h1>
+    <p>Wedding • Birthday • Anniversary • Festival • Party • Special Occasion & More</p>
+    <button class="btn" type="button" onclick="openOrder()">Order Now</button>
+    <a class="btn light" href="#sweets">Our Sweets</a>
+  </div>
+</section>
+
+<section class="features">
+  <div class="feature"><span class="icon">♧</span>100% Pure<br>Ingredients</div>
+  <div class="feature"><span class="icon">♨</span>Hygienically<br>Prepared</div>
+  <div class="feature"><span class="icon">♡</span>Loved by<br>Thousands</div>
+</section>
+
+<section class="section" id="sweets">
+  <div class="section-head">
+    <h2>Our Popular Sweets</h2>
+    <a class="view" href="#sweets">View All</a>
+  </div>
+
+  <div class="products">
+    <article class="product">
+      <img src="paneer.jpg" alt="paneer">
+      <div class="product-info"><h3>paneer</h3><div class="price">₹480 / Kg</div></div>
+    </article>
+    <article class="product">
+      <img src="gulabjamun.jpg" alt="Gulab Jamun">
+      <div class="product-info"><h3>Gulab Jamun</h3><div class="price">₹320 / Kg</div></div>
+    </article>
+    <article class="product">
+      <img src="rasgulla.jpg" alt="Rasgulla">
+      <div class="product-info"><h3>Rasgulla</h3><div class="price">₹320 / Kg</div></div>
+    </article>
+    <article class="product">
+      <img src="balushahi.jpg" alt="balushahi">
+      <div class="product-info"><h3>balushahi</h3><div class="price">₹680 / Kg</div></div>
+    </article>
+    <article class="product">
+      <img src="ghee.jpg" alt="pure ghee">
+      <div class="product-info"><h3>pure ghee</h3><div class="price">$719 / Kg></div></div>
+    </article>
+    <article class="product">
+      <img src="buffalo.jpg" alt="buffalo milk">
+      <div class="product-info"><h3>buffalo milk</h3><div class="price">$389 / kg</div></div>
+    </article>
+    <article class="product">
+     <img src="cow.jpg" alt="cow milk">
+     <div class="product-info"><h3>cow milk</h3><div class="price">$857 / kg</div></div>
+    </article>
+  </div>
+</section>
+
+<section class="occasion" id="order">
+  <div style="color:#a86f28;font:italic 17px Georgia,serif">For Every Sweet Occasion</div>
+  <h2>Wedding, Birthday,<br><span>Party, Anniversary</span></h2>
+  <p>or any special occasion. Book your order now!</p>
+  <button class="btn" type="button" onclick="openOrder()">💬 Book on WhatsApp</button>
+</section>
+
+<section class="section" style="padding-top:0">
+  <div class="shop-slider">
+    <div class="shop-track">
+      <div class="shop-photo"></div>
+      <div class="shop-photo"></div>
+      <div class="shop-photo"></div>
+      <div class="shop-photo"></div>
+    </div>
+    <div class="shop-caption">
+      <small>Aarush Shop</small>
+      <h2>Fresh Mithai for Every Celebration</h2>
+      <p>Our shop photos automatically slide from left to right.</p>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="contact-box">
+    <div>
+      <h2>Visit Our Shop</h2>
+      <p>📍 Janar Bandh,<br>
+      Muzaffarpur to Sitamarhi Road,<br>
+      NH 77 Highway</p>
+      <p>📞 <a href="tel:8850304984">8850304984</a></p>
+    </div>
+    <div class="map">
+      <div>
+        <strong>📍 Aarush Shop</strong><br>
+        Janar Bandh • NH 77 Highway<br><br>
+        <a class="btn" href="https://www.google.com/maps/search/?api=1&query=Janar+Bandh+NH+77+Muzaffarpur+Sitamarhi" target="_blank" rel="noopener">Directions</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="social-title">Follow Us</div>
+  <div class="social">
+    <a href="https://www.instagram.com/aj3712kumar/" target="_blank" rel="noopener">📸 Instagram</a>
+    <a href="https://wa.me/8850304984" target="_blank" rel="noopener">💬 WhatsApp</a>
+    <a href="https://www.facebook.com/aryan.ashiq.376?mibextid=ZbWKwL" target="_blank" rel="noopener">🔵 facebook</a>
+  </div>
+</section>
+
+</main>
+
+
+<!-- ORDER FORM -->
+<div class="order-modal" id="orderModal" aria-hidden="true">
+  <div class="order-box">
+    <button class="close-order" onclick="closeOrder()" aria-label="Close">×</button>
+    <h2>Place Your Order</h2>
+    <div class="sub">Fill the details and continue on WhatsApp.</div>
+
+    <form class="order-form" id="orderForm">
+      <label for="item">Select Item</label>
+      <div class="item-row">
+        <select id="item" required>
+          <option value="">Choose a sweet</option>
+          <option>Cow milk</option>
+          <option>Gulab Jamun</option>
+          <option>Rasgulla</option>
+          <option>Paneer</option>
+          <option>Balushahi</option>
+          <option>Buffalo mik</option>
+          <option>Ghee</option>
+          <option>Other / Custom Order</option>
+        </select>
+        <input id="qty" type="number" min="1" value="1" required placeholder="Qty">
+      </div>
+
+      <label for="customerName">Customer Name</label>
+      <input id="customerName" type="text" required placeholder="Enter your name">
+
+      <label for="contactNo">Contact Number</label>
+      <input id="contactNo" type="tel" inputmode="numeric" pattern="[0-9]{10}" maxlength="10"
+             required placeholder="10-digit mobile number">
+
+      <label for="address">Delivery / Event Address</label>
+      <textarea id="address" required placeholder="Enter address or event location"></textarea>
+
+      <label for="occasion">Occasion (optional)</label>
+      <input id="occasion" type="text" placeholder="Wedding, Birthday, Festival, Party...">
+
+      <button class="order-submit" type="submit">💬 Order on WhatsApp</button>
+      <div class="order-note">WhatsApp will open with your order details. Tap Send to send the order.</div>
+    </form>
+  </div>
+</div>
+
+<footer>© 2026 Aarush Shop. All Rights Reserved.</footer>
+
+<script>
+function toggleMenu(){
+  document.getElementById('nav').classList.toggle('open');
+}
+function closeMenu(){
+  document.getElementById('nav').classList.remove('open');
+}
+
+function openOrder(){
+  closeMenu();
+  document.getElementById('orderModal').classList.add('show');
+  document.getElementById('orderModal').setAttribute('aria-hidden','false');
+  document.getElementById('customerName').focus();
+}
+function closeOrder(){
+  document.getElementById('orderModal').classList.remove('show');
+  document.getElementById('orderModal').setAttribute('aria-hidden','true');
+}
+
+document.getElementById('orderModal').addEventListener('click', function(e){
+  if(e.target === this) closeOrder();
+});
+
+document.addEventListener('keydown', function(e){
+  if(e.key === 'Escape') closeOrder();
+});
+
+document.getElementById('orderForm').addEventListener('submit', function(e){
+  e.preventDefault();
+
+  const item = document.getElementById('item').value;
+  const qty = document.getElementById('qty').value;
+  const name = document.getElementById('customerName').value.trim();
+  const phone = document.getElementById('contactNo').value.trim();
+  const address = document.getElementById('address').value.trim();
+  const occasion = document.getElementById('occasion').value.trim();
+
+  if(!/^[0-9]{10}$/.test(phone)){
+    alert('Please enter a valid 10-digit contact number.');
+    return;
+  }
+
+  const message =
+`Hello Aarush Shop,
+
+I want to place an order.
+
+Customer Name: ${name}
+Contact No: ${phone}
+Item: ${item}
+Quantity: ${qty}
+Address / Event Location: ${address}` +
+(occasion ? `\nOccasion: ${occasion}` : '');
+
+  const whatsappNumber = '8850304984';
+  const url = 'https://wa.me/' + whatsappNumber + '?text=' + encodeURIComponent(message);
+
+  window.open(url, '_blank');
+});
+</script>
+
+</body>
+</html>
